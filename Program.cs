@@ -1,39 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//Initial list of names
-
-List<string> names = new List<string>()
-{
-    "Jordan Williams", "Travis Williams", "Dustin Dixon"
-};
-
 Console.WriteLine("");
 Console.WriteLine("*** First Iteration ***");
 Console.WriteLine("------------------------");
 
-// Writes a greeting for each name on its own line
-
-foreach (string name in names)
-{
-    Console.WriteLine($"Hello, {name}");
-}
-
 // Added three more names
 
-names.Add("Brittany Mangum");
-names.Add("David Stewart");
-names.Add("Sethward Theodosia Landon Elric Sebastian III");
+// Console.WriteLine("");
+// Console.WriteLine("*** Second Iteration ***");
+// Console.WriteLine("--------------------------");
 
-Console.WriteLine("");
-Console.WriteLine("*** Second Iteration ***");
-Console.WriteLine("--------------------------");
-
-// Only lists names longer than 20 characters
-
-foreach (string name in names)
+// Create and list new contact
+Contact brittany = new Contact()
 {
-    if (name.Length > 20) {
-        Console.WriteLine($"Hello, {name}");
-    }
+    Name = "Brittany Mangum",
+    Email = "brittanymangum@gmail.com",
+    Id = 1
+};
+
+Contact robert = new Contact()
+{
+    Name = "Robert Parker",
+    Email = "robertparker@gmail.com",
+    Id = 2
+};
+
+//Initial list of names
+List<Contact> contacts = new List<Contact>()
+{
+    brittany, robert
+};
+
+// Writes a greeting for each name on its own line
+foreach (Contact contact in contacts)
+{
+    Console.WriteLine($"Hello, {contact.Name}");
+}
+
+// Console.WriteLine($"{brittany.Name}, {brittany.Email}, {brittany.Id}");
+
+// Contact class
+public class Contact
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public int Id { get; set; }
 }
